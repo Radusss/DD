@@ -1,5 +1,42 @@
 <h1>Welcome to your home page</h1>
-<p>Your email address is: <%= @email %></p>
+
+<p>Your email address is: <%= current_user.email %></p>
+
+<button onclick="toggleForm()">Create delivery</button>
+
+<div id="form-container" style="display:none">
+  <%= form_tag("/deliveries", method: "post") do %>
+      <%= hidden_field_tag :customer_id, current_user.id %>
+      <%= label_tag "Street" %>
+      <%= text_field_tag "delivery[street]" %>
+      <br>
+      <%= label_tag "House number" %>
+      <%= text_field_tag "delivery[house_number]" %>
+      <br>
+      <%= label_tag "Height" %>
+      <%= text_field_tag "delivery[height]" %>
+      <br>
+      <%= label_tag "Width" %>
+      <%= text_field_tag "delivery[width]" %>
+      <br>
+      <%= label_tag "Depth" %>
+      <%= text_field_tag "delivery[depth]" %>
+      <br>
+      <%= submit_tag "Submit" %>
+  <% end %>
+</div>
+
+<h2>Orders</h2>
+<% @user_deliveries.each do |order| %>
+  <p>
+    Street: <%= order.street %> <br>
+    House number: <%= order.house_number %> <br>
+    Dimensions: <%= order.height %> x <%= order.width %> x <%= order.depth %> <br>
+    Status: <%= order.status %> <br>
+    Tracking Number: <%= order.tracking_number %>
+  </p>
+<% end %>
+
 <% if user_signed_in? %>
   <%= link_to "Log out", destroy_user_session_path, method: :delete %>
 <% end %>
