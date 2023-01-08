@@ -1,0 +1,67 @@
+WW
+
+<script>
+  document.getElementById('update-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const trackingNumber = document.getElementById('tracking-number').value;
+    const xhr = new XMLHttpRequest();
+    xhr.open('PATCH', '/deliveries/update_status');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.setRequestHeader('X-CSRF-Token', document.getElementsByName('authenticity_token')[0].content);
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        // Update the table with the updated delivery data
+        const delivery = JSON.parse(xhr.responseText).delivery;
+        const deliveryRow = document.getElementById(`delivery-${delivery.id}`);
+        deliveryRow.innerHTML = `
+          <td>${delivery.tracking_number}</td>
+          <td>${delivery.customer.email}</td>
+          <td>${delivery.street}</td>
+          <td>${delivery.house_number}</td>
+          <td>${delivery.height} x ${delivery.width} x ${delivery.depth}</td>
+          <td>${delivery.status}</td>
+        `;
+      }
+    };
+    xhr.send(`tracking_number=${trackingNumber}`);
+  });
+</script>
+
+<%= form_tag '/deliveries/update_status', method: :patch, id: 'update-form' do %>
+    <%= hidden_field_tag 'authenticity_token', form_authenticity_token %>
+    <%= label_tag 'Tracking number' %>
+    <%= text_field_tag 'tracking_number', '', id: 'tracking-number' %>
+    <%= submit_tag 'Update status' %>
+<% end %>
+
+<h1>Deliveries Inside Warehouse</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Tracking Number</th>
+      <th>Customer</th>
+      <th>Street</th>
+      <th>House Number</th>
+      <th>Dimensions</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% Delivery.where(status: 'Inside Warehouse').each do |delivery| %>
+      <tr id="delivery-<%= delivery.id %>">
+        <td><%= delivery.tracking_number %></td>
+        <td><%= delivery.customer.email %></td>
+        <td><%= delivery.street %></td>
+        <td><%= delivery.house_number %></td>
+        <td><%= delivery.height %> x <%= delivery.width %> x <%= delivery.depth %></td>
+        <td><%= delivery.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if user_signed_in? %>
+  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+<% end %>

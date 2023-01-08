@@ -45,6 +45,9 @@ gem "bootsnap", require: false
 # for authentication
 gem "devise"
 
+#for lat/long
+gem 'geocoder'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

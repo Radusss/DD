@@ -4,5 +4,5 @@ class User < ApplicationRecord
   #has many :deliveries
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  attr_accessor :name, :role 
+  attr_accessor :name
 end

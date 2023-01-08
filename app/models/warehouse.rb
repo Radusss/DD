@@ -1,2 +1,3 @@
 class Warehouse < ApplicationRecord
+    
 end
