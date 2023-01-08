@@ -35,7 +35,7 @@ class DeliveriesController < ApplicationController
 
       end
 
-      def load_car
+    def load_car
         puts '-------------------------------------------------------------------sadasdasdasdasd'
         # Select the 10 oldest deliveries with the status "Inside warehouse"
         @deliveries = Delivery.where(status: 'Inside Warehouse').order(created_at: :asc).limit(10)
@@ -47,6 +47,12 @@ class DeliveriesController < ApplicationController
         # Redirect to the driver_home page
         redirect_to '/driver_home'
     end
+
+    def done
+        @delivery = Delivery.find(params[:id])
+        @delivery.update(status: 'Delivered')
+        redirect_to '/driver_home'
+      end
   
     private
 
