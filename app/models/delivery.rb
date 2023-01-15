@@ -9,4 +9,6 @@ class Delivery < ApplicationRecord
     def address
         "#{street}, #{house_number}, Groningen, Netherlands"
     end
+
+
 end

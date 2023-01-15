@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   patch '/driver_home/load_car', to: 'deliveries#load_car', as: :load_car
   patch '/deliveries/:id/done', to: 'deliveries#done', as: 'delivery_done'
   root "pages#login"
+  get '/deliveries', to: 'deliveries#index'
 end

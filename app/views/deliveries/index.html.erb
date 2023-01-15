@@ -1,0 +1,23 @@
+<!-- app/views/orders/index.html.erb -->
+<h1>Orders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Send Date</th>
+      <th>Sender</th>
+      <th>Receiver</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @all_eshop_deliveries.each do |order| %>
+      <tr>
+        <td><%= order["id"] %></td>
+        <td><%= order["send_date"] %></td>
+        <td><%= order["sender_info"]["name"] %></td>
+        <td><%= order["receiver_info"]["name"] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
