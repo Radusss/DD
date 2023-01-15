@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   patch '/deliveries/:id/done', to: 'deliveries#done', as: 'delivery_done'
   root "pages#login"
   get '/deliveries', to: 'deliveries#index'
+  post 'charge', to: 'users#charge'
 end

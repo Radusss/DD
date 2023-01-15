@@ -15,4 +15,8 @@ class UsersController < ApplicationController
             render "standard_home" 
         end
     end
+
+    def charge
+        # your charge logic here
+    end
 end
