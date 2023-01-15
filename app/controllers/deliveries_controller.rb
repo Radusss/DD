@@ -104,32 +104,24 @@ class DeliveriesController < ApplicationController
 
       delivery_id = @all_eshop_deliveries.first["id"]
       url = URI("https://pasd-webshop-api.onrender.com/api/label?delivery_id=#{delivery_id}")
-
+    
       http = Net::HTTP.new(url.host, url.port)
       http.use_ssl = true
   
       file_path = File.join(Rails.root, "app", "assets", "images", "label.txt")
       file = File.new(file_path, 'rb')
       req = Net::HTTP::Post::Multipart.new url.path,
-                                           "labelFile" => UploadIO.new(file, "text/plain")
+                                           "labelFile" => UploadIO.new(file, "text/plain"),
+                                           "delivery_id" => delivery_id.to_s
       
-      #binary = File.read(file_path).unpack("C*")
-      #binary = binary.pack("C*")
-      
-      #file = ActionDispatch::Http::UploadedFile.new(tempfile: file, filename: File.basename(file))
 
-      #req = Net::HTTP::Post.new(url.path)
       req.add_field "accept", "application/json"
       req.add_field "x-api-key", "7ET74P2i5YRoKF4CdSMu"
-      #req.add_field 'Content-Type', 'multipart/form-data, boundary=your_boundary'
-      #req.body = binary
+
       response = Net::HTTP.start(url.hostname, url.port, use_ssl: url.scheme == 'https') do |http|
         http.request(req)
       end
-      # Add delivery_id field to query parameters
-      #req.set_form_data({delivery_id: delivery_id, labelFile: file})
 
-      #response = http.request(req)
       puts '-------------------------------------------------------------------------------'
       puts response
       @post_label = JSON.parse(response.body)
