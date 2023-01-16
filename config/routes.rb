@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post '/deliveries', to: 'deliveries#create'
   patch '/deliveries/update_status', to: 'deliveries#update_status'
   patch '/driver_home/load_car', to: 'deliveries#load_car', as: :load_car
+  patch '/driver_home/start_delivery', to: 'deliveries#start_delivery', as: :start_delivery
   patch '/deliveries/:id/done', to: 'deliveries#done', as: 'delivery_done'
   root "pages#login"
   get '/deliveries', to: 'deliveries#index'

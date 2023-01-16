@@ -49,7 +49,7 @@ WW
     </tr>
   </thead>
   <tbody>
-    <% Delivery.where(status: 'Inside Warehouse').each do |delivery| %>
+    <% Delivery.where(status: ['Inside Warehouse', 'Loading car']).each do |delivery| %>
       <tr id="delivery-<%= delivery.id %>">
         <td><%= delivery.tracking_number %></td>
         <td><%= delivery.customer.email %></td>

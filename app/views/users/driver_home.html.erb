@@ -11,6 +11,10 @@ Driver
     <%= submit_tag "Load car" %>
 <% end %>
 
+<%= form_tag start_delivery_path, method: :patch do %>
+  <%= submit_tag "Start delivery" %>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -24,7 +28,7 @@ Driver
     </tr>
   </thead>
   <tbody>
-    <% Delivery.where(status: 'On the way to the destination', driver_id: current_user.id).each do |delivery| %>
+    <% Delivery.where(status: ['On the way to the destination', 'Loading car'], driver_id: current_user.id).each do |delivery| %>
       <tr>
         <td><%= delivery.tracking_number %></td>
         <td><%= delivery.customer.email %></td>
@@ -33,7 +37,11 @@ Driver
         <td><%= delivery.height %> x <%= delivery.width %> x <%= delivery.depth %></td>
         <td><%= delivery.latitude %> x <%= delivery.longitude %>
         <td><%= delivery.status %></td>
-        <td><%= button_to 'Done', delivery_done_path(delivery), method: :patch, class: 'button' %></td>
+        <td>
+          <% if delivery.status == 'On the way to the destination' %>
+            <%= button_to 'Done', delivery_done_path(delivery), method: :patch, class: 'button' %>
+            <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
