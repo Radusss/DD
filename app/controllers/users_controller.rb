@@ -20,3 +20,14 @@ class UsersController < ApplicationController
         # your charge logic here
     end
 end
+
+# <h2>Orders</h2>
+#   <% @user_deliveries.each do |order| %>
+#     <p>
+#       Street: <%= order.street %> <br>
+#       House number: <%= order.house_number %> <br>
+#       Dimensions: <%= order.height %> x <%= order.width %> x <%= order.depth %> <br>
+#       Status: <%= order.status %> <br>
+#       Tracking Number: <%= order.tracking_number %>
+#     </p>
+#   <% end %>

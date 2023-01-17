@@ -23,6 +23,83 @@
   transform: translate(-50%, -50%);
 }
 
+.short-form {
+  width: 20%;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+p {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background-color: #f2f2f2;
+}
+button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  position: fixed;
+  bottom: 20px;
+  right: 400px;
+}
+
+#form-container {
+  display: none;
+}
+
+#form-container label {
+  font-size: 12px;
+  margin-bottom: 3px;
+  display: block;
+}
+
+#form-container input[type="text"] {
+  padding: 5px 8px;
+  margin-bottom: 5px;
+  width: 50%;
+  font-size: 14px;
+}
+
+#form-container input[type="submit"] {
+  padding: 5px 8px;
+  font-size: 14px;
+  width: 25%;
+}
+
+.scrollable-dashboard {
+  position: absolute;
+  overflow-y: scroll;
+  height: 250px;
+  width: 550px;
+  top: 45%;
+  left: 60%;
+  padding: 15px;
+  margin: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
 /* .road-container {
   position: absolute;
   top: 0%;
@@ -84,7 +161,6 @@
   content: url("/assets/red_truckk.png");
   position: fixed;
   bottom: 0;
-  /* left: -50px; */
   height: 110px;
   /* background: url("/assets/truck2.png");
   background-size: contain; */
