@@ -81,17 +81,30 @@
 } */
 
 .car {
-  content: url("/assets/truck2.png");
+  content: url("/assets/red_truckk.png");
   position: fixed;
   bottom: 0;
   /* left: -50px; */
-  width: 100px;
-  height: 100px;
+  height: 110px;
   /* background: url("/assets/truck2.png");
   background-size: contain; */
   /* transform: skewX(+61.5deg); */
   /* transform: rotate(-30deg); */
   z-index: 3;
+}
+
+.red-truck {
+  content: url("/assets/red_truck.png");
+  position: fixed;
+  bottom: 0;
+  /* left: -50px; */
+  /* width: 100px; */
+  height: 110px;
+  /* background: url("/assets/truck2.png");
+    background-size: contain; */
+  /* transform: skewX(+61.5deg); */
+  /* transform: rotate(-30deg); */
+  z-index: 4;
 }
 
 /* @keyframes move-car {
@@ -103,28 +116,32 @@
   }
 } */
 
-@keyframes move-car {
-  0% {
-    bottom: calc(0vh + 50px);
-    left: calc(-85vh + 1px);
-  }
-  100% {
-    bottom: calc(100vh - 1px);
-    left: 85vh;
-  }
-}
-
 @keyframes move-stick-truck {
   0% {
     bottom: 100%;
-    left: 85%;
+    left: 86.5%;
   }
   100% {
-    bottom: -10%;
+    bottom: -12%;
     left: -10%;
+  }
+}
+
+@keyframes move-red-truck {
+  0% {
+    top: 100%;
+    right: 95%;
+  }
+  100% {
+    top: -15%;
+    right: -3%;
   }
 }
 
 .car {
   animation: move-stick-truck 10s linear infinite;
+}
+
+.red-truck {
+  animation: move-red-truck 10s linear infinite;
 }
