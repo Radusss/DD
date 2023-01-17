@@ -1,4 +1,4 @@
-WW
+
 
 <script>
   document.getElementById('update-form').addEventListener('submit', function(event) {
@@ -34,6 +34,10 @@ WW
     <%= submit_tag 'Update status' %>
 <% end %>
 
+<% if user_signed_in? %>
+  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "log-out-link-ww" %>
+<% end %>
+
 <h1>Deliveries Inside Warehouse</h1>
 
 
@@ -62,6 +66,3 @@ WW
   </tbody>
 </table>
 
-<% if user_signed_in? %>
-  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-<% end %>

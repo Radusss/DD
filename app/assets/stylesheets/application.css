@@ -53,8 +53,9 @@ td {
 th {
   background-color: #f2f2f2;
 }
+
 button {
-  background-color: #4caf50; /* Green */
+  background-color: #4caf50;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -67,8 +68,98 @@ button {
   right: 400px;
 }
 
+.td-button {
+  position: relative;
+}
+
+.done-button {
+  color: #4caf50;
+  background-color: #dddddd;
+  padding: 5px 5px;
+  position: absolute;
+  right: 0px;
+  top: 5px;
+}
+.done-button:hover {
+  background-color: #dddddd;
+  color: #f80303;
+}
+
 button:hover {
   background-color: #469948;
+}
+
+a.log-out-link {
+  position: fixed;
+  color: white; /* sets the text color to white */
+  background-color: #4caf50; /* sets the background color to green */
+  padding: 8px 12px; /* adds some padding to the link*/
+  border-radius: 4px; /* rounds the corners of the link */
+  text-decoration: none; /* removes the underline from the link */
+  top: 80%;
+}
+a.log-out-link-ww:hover {
+  background-color: #469948; /* sets the background color to green */
+}
+
+a.log-out-link-ww {
+  position: fixed;
+  color: white; /* sets the text color to white */
+  background-color: #4caf50; /* sets the background color to green */
+  padding: 8px 12px; /* adds some padding to the link*/
+  border-radius: 4px; /* rounds the corners of the link */
+  text-decoration: none; /* removes the underline from the link */
+  top: 2%;
+  left: 94%;
+}
+a.log-out-link-ww:hover {
+  background-color: #469948; /* sets the background color to green */
+}
+
+a.log-out-link-driver {
+  position: fixed;
+  color: white; /* sets the text color to white */
+  background-color: #4caf50; /* sets the background color to green */
+  padding: 20px 32px; /* adds some padding to the link*/
+  border-radius: 4px; /* rounds the corners of the link */
+  text-decoration: none; /* removes the underline from the link */
+  top: 87%;
+  left: 90%;
+}
+a.log-out-link-driver:hover {
+  background-color: #469948; /* sets the background color to green */
+}
+
+.load-car {
+  position: fixed;
+  border: none;
+  color: white; /* sets the text color to white */
+  background-color: #4caf50; /* sets the background color to green */
+  padding: 20px 32px; /* adds some padding to the link*/
+  border-radius: 4px; /* rounds the corners of the link */
+  text-decoration: none; /* removes the underline from the link */
+  top: 87%;
+  left: 5%;
+}
+
+.load-car:hover {
+  background-color: #469948; /* sets the background color to green */
+}
+
+.start-delivery {
+  position: fixed;
+  border: none;
+  color: white; /* sets the text color to white */
+  background-color: #4caf50; /* sets the background color to green */
+  padding: 20px 32px; /* adds some padding to the link*/
+  border-radius: 4px; /* rounds the corners of the link */
+  text-decoration: none; /* removes the underline from the link */
+  top: 87%;
+  left: 45%;
+}
+
+.start-delivery:hover {
+  background-color: #469948; /* sets the background color to green */
 }
 
 #form-container {
@@ -90,6 +181,8 @@ button:hover {
 
 #form-container input[type="submit"] {
   background-color: #4caf50;
+  border: none;
+  color: white;
   padding: 5px 8px;
   font-size: 14px;
   margin-top: 15px;
@@ -99,6 +192,12 @@ button:hover {
 
 #form-container input[type="submit"]:hover {
   background-color: #469948;
+}
+
+.orders-header {
+  position: fixed;
+  top: 40%;
+  left: 77%;
 }
 
 .scrollable-dashboard {

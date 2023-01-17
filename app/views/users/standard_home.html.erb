@@ -1,8 +1,8 @@
 
 <h1>Disruptive Delivery</h1>
-<h3>Delivery made simple</h3>
+<h4>Delivery made simple</h4>
 
-<p>Hello, <%= current_user.email %></p>
+<!-- <p>Hello, <%= current_user.email %></p> -->
 
 <button class ="create-delivery" onclick="toggleForm()">Create delivery</button>
 
@@ -36,8 +36,8 @@
   <% end %>
 </div>
 
+<h2 class = "orders-header">My deliveries</h2>
 <div class="scrollable-dashboard">
-  <h2>Orders</h2>
   <table>
   <thead>
     <tr>
@@ -109,5 +109,5 @@
 </script>
 
 <% if user_signed_in? %>
-  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "log-out-link" %>
 <% end %>
