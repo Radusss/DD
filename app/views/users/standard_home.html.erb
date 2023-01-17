@@ -4,25 +4,25 @@
 
 <p>Hello, <%= current_user.email %></p>
 
-<button onclick="toggleForm()">Create delivery</button>
+<button class ="create-delivery" onclick="toggleForm()">Create delivery</button>
 
 <div id="form-container" style="display:none">
   <%= form_tag("/deliveries", method: "post") do %>
       <%= hidden_field_tag :customer_id, current_user.id %>
       <%= label_tag "Street" %>
-      <%= text_field_tag "delivery[street]" %>
+      <%= text_field_tag "delivery[street]", nil, style: "width: 54%" %>
       <br>
       <%= label_tag "House number" %>
-      <%= text_field_tag "delivery[house_number]" %>
+      <%= text_field_tag "delivery[house_number]", nil, style: "width: 47%" %>
       <br>
       <%= label_tag "Height" %>
-      <%= text_field_tag "delivery[height]" %>
+      <%= text_field_tag "delivery[height]", nil, style: "width: 41%" %>
       <br>
       <%= label_tag "Width" %>
-      <%= text_field_tag "delivery[width]" %>
+      <%= text_field_tag "delivery[width]", nil, style: "width: 34%" %>
       <br>
       <%= label_tag "Depth" %>
-      <%= text_field_tag "delivery[depth]" %>
+      <%= text_field_tag "delivery[depth]", nil, style: "width: 28%" %>
       <br>
       <%= submit_tag "Submit" %>
   <% end %>
