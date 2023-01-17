@@ -241,8 +241,10 @@ class DeliveriesController < ApplicationController
   end
 
   def done
+    ConfirmationMailer.done_email.deliver_now
     @delivery = Delivery.find(params[:id])
     @delivery.update(status: 'Delivered')
+    
     redirect_to '/driver_home'
   end
 

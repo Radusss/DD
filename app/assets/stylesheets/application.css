@@ -282,6 +282,20 @@ a.log-out-link-driver:hover {
   z-index: 3;
 }
 
+.logo {
+  content: url("/assets/logo.png");
+  position: fixed;
+  top: 30%;
+  left: 10%;
+  height: 200px;
+
+  /* background: url("/assets/truck2.png");
+    background-size: contain; */
+  transform: skewY(+30deg);
+  /* transform: rotate(-30deg); */
+  z-index: 3;
+}
+
 .red-truck {
   content: url("/assets/red_truck.png");
   position: fixed;
