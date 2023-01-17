@@ -54,7 +54,7 @@ gem 'faraday'
 
 gem 'multipart-post'
 
-
+gem "font-awesome-rails"
 
 
 # Use Sass to process CSS

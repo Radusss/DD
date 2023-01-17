@@ -1,6 +1,8 @@
-<h1>Welcome to your home page</h1>
 
-<p>Your email address is: <%= current_user.email %></p>
+<h1 class="center-title">Welcome to your home page</h1>
+
+
+<p>Hello, <%= current_user.email %></p>
 
 <button onclick="toggleForm()">Create delivery</button>
 
@@ -47,6 +49,17 @@
   </div>
   <%= submit_tag "Submit" %>
 <% end %>
+
+
+<div class="road-container">
+  <div class="road"></div>
+  <div class="car"></div>
+
+</div>
+
+# <div class="route-container">
+#   <div class="car"></div>
+# </div>
 
 <script src="https://js.stripe.com/v3/"></script>
 <script>
