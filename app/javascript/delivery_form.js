@@ -5,4 +5,7 @@ function toggleForm() {
   } else {
     formContainer.style.display = "none";
   }
+
+  var logo = document.querySelector(".logo");
+  logo.classList.toggle("hidden");
 }
