@@ -123,6 +123,8 @@ GEM
       net-imap
       net-pop
       net-smtp
+    mail_interceptor (0.0.7)
+      activesupport
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
@@ -245,6 +247,7 @@ DEPENDENCIES
   geocoder
   importmap-rails
   jbuilder
+  mail_interceptor
   multipart-post
   net-http
   puma (~> 5.0)

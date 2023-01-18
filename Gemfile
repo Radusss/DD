@@ -56,6 +56,7 @@ gem 'multipart-post'
 
 gem "font-awesome-rails"
 
+gem 'mail_interceptor', group: [:development, :staging]
 
 # Use Sass to process CSS
 # gem "sassc-rails"

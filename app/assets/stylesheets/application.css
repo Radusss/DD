@@ -38,6 +38,7 @@ h1 {
   font-weight: bold;
   margin-bottom: 10px;
   font-family: "Roboto", sans-serif;
+  font-style: italic;
 }
 
 h2 {
@@ -49,7 +50,8 @@ h2 {
 h4 {
   font-size: 1em;
   margin-bottom: 10px;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
 }
 p {
   font-size: 1.2em;
@@ -84,7 +86,7 @@ td {
 }
 
 tr:nth-child(even) {
-  background-color: #cfd8dc;
+  background-color: #e0e8eccc;
 }
 
 button {
@@ -113,14 +115,15 @@ button:hover {
 
 .done-button {
   color: #0bf313;
-  background-color: #dddddd;
+  background: none;
+  /* background-color: #dddddd; */
   padding: 5px 5px;
   position: absolute;
   right: 0px;
   top: 5px;
 }
 .done-button:hover {
-  background-color: #dddddd;
+  background: none;
   color: #f80303;
 }
 
@@ -247,7 +250,7 @@ a.log-out-link-driver:hover {
   position: fixed;
   overflow-y: scroll;
   height: 200px;
-  width: 615px;
+  width: 650px;
   top: 50%;
   right: 0%;
   padding: 15px;
@@ -324,8 +327,8 @@ a.log-out-link-driver:hover {
 .logo2 {
   content: url("/assets/logo2.png");
   position: fixed;
-  top: 30%;
-  left: 35%;
+  top: 23%;
+  left: 40%;
   height: 320px;
   /* transform: skewY(+30deg); */
   z-index: 3;
