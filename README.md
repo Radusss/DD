@@ -1,7 +1,7 @@
 To see different views log in as:
 - standard : standard@yahoo.com
 - driver : driver@yahoo.com
--waehouse worker : ww@yahoo.com
+- waehouse worker : ww@yahoo.com
 
 Password is 123123 for all of them. 
 
