@@ -12,7 +12,6 @@ class DeliveriesController < ApplicationController
   def index
     get_eshop_orders
     make_bids
-    #if not @post_delivery["detail"] == "Order is already being delivered"
     send_labels
     pickup_eshop_deliveries
     dropoff_eshop_deliveries
@@ -51,7 +50,7 @@ class DeliveriesController < ApplicationController
 
   def get_eshop_orders
 
-    debugger
+
     url = URI("https://pasd-webshop-api.onrender.com/api/order/")
 
     http = Net::HTTP.new(url.host, url.port)
@@ -66,7 +65,7 @@ class DeliveriesController < ApplicationController
   end
 
   def patch_eshop_delivery(delivery_id)
-    debugger
+
     url = URI("https://pasd-webshop-api.onrender.com/api/delivery/#{delivery_id}")
 
     http = Net::HTTP.new(url.host, url.port)
@@ -91,7 +90,6 @@ class DeliveriesController < ApplicationController
 
 
   def get_eshop_delivery(delivery_id)
-    debugger
     url = URI("https://pasd-webshop-api.onrender.com/api/delivery/#{delivery_id}")
 
     http = Net::HTTP.new(url.host, url.port)
@@ -111,7 +109,6 @@ class DeliveriesController < ApplicationController
   def make_bids
     @eshop_accepted_deliveries = []
     @all_eshop_orders.each do |order|
-      debugger
       post_eshop_delivery(order["id"]) #Bid
       @eshop_accepted_deliveries << @post_delivery if @post_delivery["status"] == "EXP" 
     end 
@@ -125,7 +122,6 @@ class DeliveriesController < ApplicationController
   end
 
   def pickup_eshop_deliveries
-    debugger
     get_all_accepted_deliveries_ids.each do |id|
       delivery = get_eshop_delivery(id)
       patch_eshop_delivery(id) if delivery['status'] == 'RFP' 
@@ -149,7 +145,6 @@ class DeliveriesController < ApplicationController
   end
 
   def post_eshop_delivery(order_id)
-    debugger
     url = URI("https://pasd-webshop-api.onrender.com/api/delivery/")
 
     http = Net::HTTP.new(url.host, url.port)
@@ -183,7 +178,7 @@ class DeliveriesController < ApplicationController
 
 
   def post_eshop_label(id)
-    debugger
+
 
     delivery_id = id.to_s
     url = URI.parse("https://pasd-webshop-api.onrender.com/api/label?delivery_id=#{delivery_id}")
@@ -195,10 +190,10 @@ class DeliveriesController < ApplicationController
 
     file_path = File.join(Rails.root, "app", "assets", "images", "download.pdf")
     file = File.new(file_path, 'rb')
-    pulamea = "#{url.path}?#{url.query}"
+    plm = "#{url.path}?#{url.query}"
 
     query = {"delivery_id" => delivery_id}
-    req = Net::HTTP::Post::Multipart.new(pulamea, {"labelFile" => UploadIO.new(file, "application/pdf")})
+    req = Net::HTTP::Post::Multipart.new(plm, {"labelFile" => UploadIO.new(file, "application/pdf")})
 
     req.add_field "accept", "application/json"
     req.add_field "x-api-key", "7ET74P2i5YRoKF4CdSMu"
@@ -216,27 +211,14 @@ class DeliveriesController < ApplicationController
 
 
   def load_car
-      
-      # Select the 10 oldest deliveries with the status "Inside warehouse"
       @deliveries = Delivery.where(status: 'Inside Warehouse').order(created_at: :asc).limit(10)
-
-      # Update the status of the selected deliveries to "Loading car"
       @deliveries.update_all(status: 'Loading car', driver_id: current_user.id)
-
-      # Redirect to the driver_home page
       redirect_to '/driver_home'
   end
 
   def start_delivery
-      
-    # Select the 10 oldest deliveries with the status "Inside warehouse"
     @deliveries = Delivery.where(status: 'Loading car', driver_id: current_user.id)
-
-    # Update the status of the selected deliveries to "In car"
     @deliveries.update_all(status: 'On the way to the destination', driver_id: current_user.id)
-
-
-    # Redirect to the driver_home page
     redirect_to '/driver_home'
   end
 
@@ -244,7 +226,6 @@ class DeliveriesController < ApplicationController
     ConfirmationMailer.done_email.deliver_now
     @delivery = Delivery.find(params[:id])
     @delivery.update(status: 'Delivered')
-    
     redirect_to '/driver_home'
   end
 

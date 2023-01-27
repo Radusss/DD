@@ -1,5 +1,4 @@
 class Delivery < ApplicationRecord
-    #attr_accessor :status, :height, :width, :depth, :street, :house_number
     belongs_to :customer
     belongs_to :driver, optional: true
     geocoded_by :address

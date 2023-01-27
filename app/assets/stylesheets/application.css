@@ -116,7 +116,6 @@ button:hover {
 .done-button {
   color: #0bf313;
   background: none;
-  /* background-color: #dddddd; */
   padding: 5px 5px;
   position: absolute;
   right: 0px;
@@ -222,7 +221,6 @@ a.log-out-link-driver:hover {
   font-size: 16px;
   border: none;
   background: linear-gradient(to left, #cfd8dc, #ffffff);
-  /* box-shadow: 0 2px 12px rgba(32, 32, 32, 0.3); */
 }
 
 #form-container input[type="submit"] {
@@ -314,23 +312,12 @@ a.log-out-link-driver:hover {
   z-index: 3;
 }
 
-/* .logo {
-  content: url("/assets/logo.png");
-  position: fixed;
-  top: 30%;
-  left: 10%;
-  height: 200px;
-  transform: skewY(+30deg);
-  z-index: 3;
-} */
-
 .logo2 {
   content: url("/assets/logo2.png");
   position: fixed;
   top: 23%;
   left: 40%;
   height: 320px;
-  /* transform: skewY(+30deg); */
   z-index: 3;
 }
 

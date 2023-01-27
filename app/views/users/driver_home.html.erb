@@ -49,26 +49,23 @@
 <div id="map" style="height: 400px;"></div>
 
 <script>
-  // Initialize the map and pass it the div element and the coordinates of the first delivery
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: <%= 53.209749 %>, lng: <%= 6.530806 %>},
     zoom: 8
   });
 
-  // Create a route on the map between the driver's current location and all deliveries
+
   var directionsService = new google.maps.DirectionsService();
   var directionsRenderer = new google.maps.DirectionsRenderer({map: map});
 
-  // Convert all delivery coordinates to LatLng objects
+
   var deliveryCoords = <%= raw Delivery.where(status: "On the way to the destination", driver_id: current_user.id).pluck(:latitude, :longitude).to_json %>;
   deliveryCoords = deliveryCoords.map(function(coord) {
     return new google.maps.LatLng(coord[0], coord[1]);
   });
 
-  // Add the driver's current location to the list of delivery coordinates
   deliveryCoords.unshift(new google.maps.LatLng(<%= 53.209749 %>, <%= 6.530806 %>));
 
-  // Create a request that gets a route between all the delivery coordinates
   var request = {
     origin: deliveryCoords[0],
     destination: deliveryCoords[deliveryCoords.length - 1],
@@ -82,7 +79,6 @@
     travelMode: 'DRIVING'
   };
 
-  // Send the request to the Directions Service and render the result on the map
   directionsService.route(request, function(result, status) {
     if (status == 'OK') {
       directionsRenderer.setDirections(result);

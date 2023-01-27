@@ -10,7 +10,6 @@
     xhr.setRequestHeader('X-CSRF-Token', document.getElementsByName('authenticity_token')[0].content);
     xhr.onload = function() {
       if (xhr.status === 200) {
-        // Update the table with the updated delivery data
         const delivery = JSON.parse(xhr.responseText).delivery;
         const deliveryRow = document.getElementById(`delivery-${delivery.id}`);
         deliveryRow.innerHTML = `
