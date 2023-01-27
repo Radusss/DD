@@ -1,24 +1,8 @@
-# README
+To see different views log in as:
+- standard : standard@yahoo.com
+- driver : driver@yahoo.com
+-waehouse worker : ww@yahoo.com
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Password is 123123 for all of them. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To get the program running install ruby, and bundler (with "gem install bundler") and run "bundle install". After it finishes, run "rails s" (also from within the main folder. Now you should be able to use the app.
